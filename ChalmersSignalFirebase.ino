@@ -15,7 +15,7 @@
 #include <ESP8266HTTPClient.h>
 #include <FirebaseArduino.h>
 
-#include <declare.h>
+#include "declare.h"
 #define USE_SERIAL Serial
 
 ESP8266WiFiMulti WiFiMulti;
@@ -53,13 +53,13 @@ int value = -1; //init value to OFF
 void loop() {
   if (button_pressed()) {
     update_value();
-    push_value();
+    push_value(value);
 //if acknowledgement isn't recieved, continue to flash_led
 //also, continue to push_value() and check push_acknowledged()
     if(push_acknowledged() == false){
       while (push_acknowledged() == false) {
         flash_led();
-        push_value();
+        push_value(value);
         if (push_acknowledged) {
           break;
         }
@@ -122,10 +122,10 @@ bool button_pressed() {
 void update_value() {
   value *= -1; // toggle the value
 }
-void push_value() {
+void push_value(int value) {
   //push the updated value to the database
   //then print in the console if the push was a success
-  Firebase.setString("message", "hello juan");
+  Firebase.setInt("value", value);
   USE_SERIAL.print("Status of last Set-String: ");
   USE_SERIAL.println(Firebase.success());
   // handle error
