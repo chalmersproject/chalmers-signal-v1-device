@@ -2,7 +2,7 @@ G20 (Units are in Inches)
 F16.00000
 G61 (Go to exact corners)
 #201 = 3 (number of passes)
-#200 = 0.000000 (move the bed up incrementally by this much in inches)
+#200 = 0.078740 (move the bed up incrementally by this much in inches)
 #300 = 0 (bed movement distance storage variable)
 #100 = 1 (layer number storage variable)
 G1 W0.00000 (make sure bed is 0.0000 before you cut first pass)
