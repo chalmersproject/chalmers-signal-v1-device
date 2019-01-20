@@ -9,16 +9,31 @@
 
 #include <Arduino.h>
 
+//Wireless Drivers
 #include <ESP8266WiFi.h>
 #include <ESP8266WiFiMulti.h>
+ESP8266WiFiMulti WiFiMulti;
 
 #include <ESP8266HTTPClient.h>
 #include <FirebaseArduino.h>
 
-#include "declare.h"
+
 #define USE_SERIAL Serial
 
-ESP8266WiFiMulti WiFiMulti;
+//Display Drivers
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#define SCREEN_WIDTH 128 // OLED display width, in pixels
+#define SCREEN_HEIGHT 64 // OLED display height, in pixels
+// Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
+#define OLED_RESET LED_BUILTIN // Reset pin # (or -1 if sharing Arduino reset pin)
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+//API Keys, SSIDs, Passwords
+#include "declare.h"
+
 #define Button D3
 #define LED D2
 
@@ -32,6 +47,31 @@ void setup() {
   USE_SERIAL.println("======================");
   USE_SERIAL.println("======================");
 
+  //Startup Screen
+    Serial.begin(9600);
+
+  // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
+  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { // Address 0x3C for 128x32
+    Serial.println(F("SSD1306 allocation failed"));
+    for(;;); // Don't proceed, loop forever
+  }
+
+  // Show initial display buffer contents on the screen --
+  // the library initializes this with an Adafruit splash screen.
+  display.display();
+  delay(2000); // Pause for 2 seconds
+
+  // Clear the buffer
+  display.clearDisplay();
+
+  // Draw a single pixel in white
+  display.drawPixel(10, 10, WHITE);
+
+  // Show the display buffer on the screen. You MUST call display() after
+  // drawing commands to make them visible on screen!
+  display.display();
+  delay(2000);
+  
   //Initialize the LED and Button Pins
   pinMode(LED, OUTPUT);
   pinMode(Button, INPUT);
