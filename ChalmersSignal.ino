@@ -14,28 +14,22 @@ See README for installation instructions
 #include "secrets.h"
 //Libraries and declarations
 #include "declarations.h"
-int ReCalc;
+
 
 void setup() {
-
-  Serial.begin(9600);
-  display.begin(SSD1306_SWITCHCAPVCC, 0x3C); // Address 0x3D for 128x64
-  display.clearDisplay();
-  display.setTextColor(WHITE);
-  display.setTextSize(2);
-
-  //neopixel setup
-  strip.begin();
-  strip.setBrightness(50);
-  strip.show(); // Initialize all pixels to 'off'
+  USE_SERIAL.begin(115200);
+  setup_display();
+  setup_led();
 }
 
-void loop() {
+int disp_occupancy;
+int disp_color;
 
-  ReCalc = map(analogRead(Pot), 0, 960, 0, 70);
+void loop() {
+  disp_occupancy = map(analogRead(Pot), 0, 960, 0, 70);
   display.clearDisplay();
   display.setCursor(0,0);
-  display.print(ReCalc);
+  display.print(disp_occupancy);
   display.display();
 
   rainbow(20);
@@ -43,6 +37,18 @@ void loop() {
 
 }
 
+void setup_display(){
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C); // Address 0x3D for 128x64
+  display.clearDisplay();
+  display.setTextColor(WHITE);
+  display.setTextSize(2);
+}
+void setup_led(){
+  //neopixel setup
+  strip.begin();
+  strip.setBrightness(50);
+  strip.show(); // Initialize all pixels to 'off'
+}
 void rainbow(uint8_t wait) {
   uint16_t i, j;
 
