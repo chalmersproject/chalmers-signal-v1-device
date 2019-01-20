@@ -1,31 +1,20 @@
-#include <SPI.h>
-#include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
+/*
 
-#define SCREEN_WIDTH 128 // OLED display width, in pixels
-#define SCREEN_HEIGHT 64 // OLED display height, in pixels
-#define Pot A0
-//GND --------> GND
-//VCC --------> 5v
-//D0 (CLK)----------> A5
-//D1 (MOSI)-----------> A4
-//RES ---------> pin4
+   ___ _         _                    ___ _                _ _
+  / __| |_  __ _| |_ __  ___ _ _ ___ / __(_)__ _ _ _  __ _| | |
+ | (__| ' \/ _` | | '  \/ -_) '_(_-< \__ \ / _` | ' \/ _` | |_|
+  \___|_||_\__,_|_|_|_|_\___|_| /__/ |___/_\__, |_||_\__,_|_(_)
+                                           |___/
+See README for installation instructions
 
+*/
 
-// Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
-#define OLED_RESET  LED_BUILTIN // Reset pin # (or -1 if sharing Arduino reset pin)
+#define USE_SERIAL Serial
+//API Keys, SSIDs, Passwords
+#include "secrets.h"
+//Libraries and declarations
+#include "declarations.h"
 int ReCalc;
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
-
-//Declaration for NeoPixel
-#include <Adafruit_NeoPixel.h>
-#ifdef __AVR__
-  #include <avr/power.h>
-#endif
-
-#define PIN 3
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(1, PIN, NEO_GRB + NEO_KHZ800);
 
 void setup() {
 
