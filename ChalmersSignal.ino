@@ -15,7 +15,7 @@ See README for installation instructions
 //Libraries and declarations
 #include "declarations.h"
 #define Pot A0
-int occupancy;
+int occupancy = 0;
 int last_occupancy;
 int disp_color;
 
@@ -39,9 +39,8 @@ void loop() {
   if(occupancy != last_occupancy){
     update_display(occupancy);
     update_led(occupancy);
-    push_to_database(occupancy);
-    while(push_to_database == false){
-      push_to_database();
+    while(push_to_database(occupancy) == false){
+      push_to_database(occupancy);
     }
   }
 }
@@ -50,7 +49,7 @@ int check_occupancy(){
   return occupancy;
 }
 void update_display(int occupancy){
-  char string = occupancy + " / " + SHELTER_CAPACITY;
+  char string = occupancy + SHELTER_CAPACITY;
   display.clearDisplay();
   display.setCursor(0,0);
   display.print(string);
@@ -58,11 +57,10 @@ void update_display(int occupancy){
 }
 void update_led(int occupancy){
   int i = 0;
-  rgb_value = map(occupancy, 0, capacity, 169, 0);
+  int rgb_value = map(occupancy, 0, SHELTER_CAPACITY, 169, 0);
   strip.setPixelColor(i, Wheel((rgb_value) & 255));
 }
-//while establishing connection, glow LED blue
-//once database acknowledgedes, return LED to occupancy color.
+
 bool push_to_database(int occupancy){
   //push the updated value to the database
   //then print in the console if the push was a success
