@@ -71,7 +71,7 @@ void setup() {
   // drawing commands to make them visible on screen!
   display.display();
   delay(2000);
-  
+
   //Initialize the LED and Button Pins
   pinMode(LED, OUTPUT);
   pinMode(Button, INPUT);
