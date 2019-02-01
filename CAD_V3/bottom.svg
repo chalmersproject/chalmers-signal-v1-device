@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="490mm"
+   height="240mm"
+   viewBox="0 0 490.00003 240.00001"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="bottom.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#838383"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.50752674"
+     inkscape:cx="733.32431"
+     inkscape:cy="38.447601"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer2"
+     showgrid="true"
+     units="mm"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     showguides="false"
+     inkscape:snap-global="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid911"
+       empcolor="#a71d00"
+       empopacity="0.34509804"
+       empspacing="5"
+       color="#ffa33f"
+       opacity="0.4" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Graphics"
+     transform="translate(0,-39.399988)">
+    <path
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.08204988;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 0.6926737,136.14101 H 101.41732 c 0.36102,0 0.65165,0.29063 0.65165,0.65165 v 141.91465 c 0,0.36102 -0.29063,0.65165 -0.65165,0.65165 H 0.6926737 c -0.36101341,0 -0.65164876,-0.29063 -0.65164876,-0.65165 V 136.79266 c 0,-0.36102 0.29063535,-0.65165 0.65164876,-0.65165 z"
+       id="rect905" />
+  </g>
+</svg>
